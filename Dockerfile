@@ -1,12 +1,12 @@
 ## STAGE I - Build builder image
-FROM public.ecr.aws/docker/library/node:18.16.1-alpine3.18 AS build
+FROM public.ecr.aws/docker/library/node:18.17.0-alpine3.18 AS build
 WORKDIR /src
 
 # copy source
 COPY .. .
 
 # install dependencies
-RUN corepack enable && corepack prepare pnpm@8.6.5 --activate \
+RUN corepack enable && corepack prepare pnpm@8.6.11 --activate \
  && pnpm fetch && pnpm install -r --offline
 
 # build static web
