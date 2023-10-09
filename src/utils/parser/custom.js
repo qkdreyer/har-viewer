@@ -156,7 +156,7 @@ export default function addCustomProperties(id, entry) {
 
   // remove custom attributes from different tools
   iterateObject(entry, (parent, key) => {
-    if (key.startsWith("_")) {
+    if (key.startsWith("_") && key !== '_webSocketMessages') {
       // eslint-disable-next-line no-param-reassign
       delete parent[key];
     }
